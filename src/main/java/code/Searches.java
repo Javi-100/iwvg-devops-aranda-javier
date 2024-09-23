@@ -25,6 +25,8 @@ public class Searches {
                 .flatMap(user -> user.getFractions().stream())  // Extraer las fracciones del usuario
                 .filter(fraction -> fraction.getNumerator() != 0)  // Excluir fracciones con numerador 0
                 .reduce((fraction1, fraction2) -> fraction1.multiply(fraction2));  // Multiplicar las fracciones
+
+
     }
 
     public Optional<Fraction> findHighestFraction() {
