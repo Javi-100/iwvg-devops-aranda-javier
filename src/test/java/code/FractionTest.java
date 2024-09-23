@@ -42,4 +42,69 @@ public class FractionTest {
         Fraction fraction = new Fraction(2, 3);
         assertEquals("Fraction{numerator=2, denominator=3}", fraction.toString());
     }
+
+    @Test
+    void testIsProperTrue() {
+        Fraction fraction = new Fraction(2, 3);
+        assertTrue(fraction.isProper());
+    }
+
+    @Test
+    void testIsProperFalse() {
+        Fraction fraction = new Fraction(4, 3);
+        assertFalse(fraction.isProper());
+    }
+
+    @Test
+    void testIsImproperTrue() {
+        Fraction fraction = new Fraction(4, 3);
+        assertTrue(fraction.isImproper());
+    }
+
+    @Test
+    void testIsImproperFalse() {
+        Fraction fraction = new Fraction(2, 3);
+        assertFalse(fraction.isImproper());
+    }
+
+    @Test
+    void testIsEquivalentTrue() {
+        Fraction fraction1 = new Fraction(1, 2);
+        Fraction fraction2 = new Fraction(2, 4);
+        assertTrue(fraction1.isEquivalent(fraction2));
+    }
+
+    @Test
+    void testIsEquivalentFalse() {
+        Fraction fraction1 = new Fraction(1, 2);
+        Fraction fraction2 = new Fraction(3, 4);
+        assertFalse(fraction1.isEquivalent(fraction2));
+    }
+
+    @Test
+    void testAdd() {
+        Fraction fraction1 = new Fraction(1, 2);
+        Fraction fraction2 = new Fraction(1, 3);
+        Fraction result = fraction1.add(fraction2);
+        assertEquals(5, result.getNumerator());
+        assertEquals(6, result.getDenominator());
+    }
+
+    @Test
+    void testMultiply() {
+        Fraction fraction1 = new Fraction(1, 2);
+        Fraction fraction2 = new Fraction(2, 3);
+        Fraction result = fraction1.multiply(fraction2);
+        assertEquals(2, result.getNumerator());
+        assertEquals(6, result.getDenominator());
+    }
+
+    @Test
+    void testDivide() {
+        Fraction fraction1 = new Fraction(1, 2);
+        Fraction fraction2 = new Fraction(2, 3);
+        Fraction result = fraction1.divide(fraction2);
+        assertEquals(3, result.getNumerator());
+        assertEquals(4, result.getDenominator());
+    }
 }
