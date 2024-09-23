@@ -26,4 +26,11 @@ public class Searches {
                 .filter(fraction -> fraction.getNumerator() != 0)  // Excluir fracciones con numerador 0
                 .reduce((fraction1, fraction2) -> fraction1.multiply(fraction2));  // Multiplicar las fracciones
     }
+
+    public Optional<Fraction> findHighestFraction() {
+        return new UsersDatabase().findAll()  // Obtenemos todos los usuarios
+                .flatMap(user -> user.getFractions().stream())  // Obtenemos las fracciones de todos los usuarios
+                .filter(fraction -> fraction.getDenominator() != 0) // Filtramos fracciones con denominador 0
+                .max(Comparator.comparingDouble(Fraction::decimal)); // Encontramos la fracción con mayor valor decimal
+    }
 }

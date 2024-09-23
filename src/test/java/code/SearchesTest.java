@@ -55,4 +55,20 @@ public class SearchesTest {
         assertEquals(0, result.getDenominator()); // Ajusta según los valores esperados
     }
 
+    @Test
+    public void testFindHighestFraction() {
+        Searches searches = new Searches();
+
+        // Llamamos al método para encontrar la fracción más alta
+        Optional<Fraction> highestFraction = searches.findHighestFraction();
+
+        // Verificamos que la fracción se ha encontrado
+        assertTrue(highestFraction.isPresent());
+
+        // Verificamos que la fracción es la esperada (2/1 con valor 2.0 es la mayor fracción en esta base de datos)
+        Fraction expected = new Fraction(2, 1);
+        assertEquals(expected.getNumerator(), highestFraction.get().getNumerator());
+        assertEquals(expected.getDenominator(), highestFraction.get().getDenominator());
+    }
+
 }
