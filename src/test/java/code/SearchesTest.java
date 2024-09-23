@@ -2,6 +2,7 @@ package code;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class SearchesTest {
@@ -36,6 +37,22 @@ public class SearchesTest {
         // Verificar que los valores decimales esperados estén en la lista
         assertTrue(decimalValues.contains(1.0));  // Ejemplo de valor decimal esperado
         assertTrue(decimalValues.contains(2.0));  // Ejemplo de valor decimal esperado
+    }
+
+    @Test
+    public void testFindFractionMultiplicationByUserFamilyName() {
+        Searches searches = new Searches();
+
+        // Buscar la multiplicación de todas las fracciones del usuario con apellido "Torres"
+        Optional<Fraction> multiplicationResult = searches.findFractionMultiplicationByUserFamilyName("Torres");
+
+        // Verificar que el resultado de la multiplicación esté presente
+        assertTrue(multiplicationResult.isPresent());
+
+        // Verificar los valores de la fracción resultante (esto depende de los datos de prueba)
+        Fraction result = multiplicationResult.get();
+        assertEquals(8, result.getNumerator());  // Ajusta según los valores esperados
+        assertEquals(0, result.getDenominator()); // Ajusta según los valores esperados
     }
 
 }
