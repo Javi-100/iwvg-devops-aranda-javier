@@ -22,4 +22,20 @@ public class SearchesTest {
         assertTrue(initials.contains("B"));  // Ejemplo: Ana Blanco
     }
 
+    @Test
+    public void testFindDecimalImproperFractionByUserName() {
+        Searches searches = new Searches();
+
+        // Obtener los valores decimales de las fracciones impropias del usuario "Oscar"
+        List<Double> decimalValues = searches.findDecimalImproperFractionByUserName("Oscar")
+                .collect(Collectors.toList());
+
+        // Verificar que la lista no esté vacía
+        assertFalse(decimalValues.isEmpty());
+
+        // Verificar que los valores decimales esperados estén en la lista
+        assertTrue(decimalValues.contains(1.0));  // Ejemplo de valor decimal esperado
+        assertTrue(decimalValues.contains(2.0));  // Ejemplo de valor decimal esperado
+    }
+
 }
